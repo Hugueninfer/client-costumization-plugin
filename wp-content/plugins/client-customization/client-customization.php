@@ -18,11 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_filter('the_content', function ( $content ) {
-    // Verificar se está em um post individual
     if ( is_singular('post') ) {
         $message = '<p><b>This content is created by: ' . get_bloginfo( 'name' ) . ' (' . get_bloginfo( 'url' ) . ')</b></p>';
         return $content . $message;
     }
-    // Retorna o conteúdo sem alterações para outros tipos de página
     return $content;
 }, 10 );
